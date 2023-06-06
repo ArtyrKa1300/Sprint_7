@@ -22,7 +22,6 @@ public class LoginCourierTest {
     @Test
     @DisplayName("Происходит проверка, что корректный запрос возвращает id курьера в системе + код 200")
     @Description("Ожидаемый результат: id курьера в случае успешного запроса")
-
     public void checkAuthorizationCourier() {
         courierClient.createCourier(courier);
         courierClient.loginCourier(courier)
@@ -34,7 +33,6 @@ public class LoginCourierTest {
     @Test
     @DisplayName("Проверяем обязательность поля Логин для авторизации курьера в системе")
     @Description("Ожидаемый результат: авторизация невозможна без Логина, запрос ведет к коду 400 и сообщению \"Недостаточно данных для входа\"")
-
     public void checkAuthorizationWithoutLogin() {
         courier = new Courier("", randomPassword, "");
         courierClient.loginCourier(courier)
@@ -49,7 +47,6 @@ public class LoginCourierTest {
     @Test
     @DisplayName("Проверяем обязательность поля Пароль для авторизации курьера в системе")
     @Description("Ожидаемый результат: авторизация невозможна без Пароля, запрос ведет к коду 400 и сообщению \"Недостаточно данных для входа\"")
-
     public void checkLoginWithoutPasswordMustBeRejected() {
         courier = new Courier(randomLogin, "", "");
         courierClient.createCourier(courier);
@@ -65,7 +62,6 @@ public class LoginCourierTest {
     @Test
     @DisplayName("Проверяем безопасность авторизации: курьер должен быть зарегистрирован в системе для успешного входа")
     @Description("Ожидаемый результат: авторизация невозможна под незарегистрированными данными, запрос ведет к коду 404 и сообщению \"Учетная запись не найдена\"")
-
     public void checkAuthorizationWithoutExistingLoginAndPassword() {
         courier = new Courier("qwerty", "123123123", "");
 
@@ -80,7 +76,6 @@ public class LoginCourierTest {
     @Test
     @DisplayName("Происходит проверка, что корректный запрос возвращает id курьера в системе + код 200")
     @Description("Ожидаемый результат: id курьера в случае успешного запроса")
-
     public void checkBodyWithIdForValidLoginCourier() {
         courierClient.createCourier(courier);
         courierClient.loginCourier(courier)
@@ -92,7 +87,6 @@ public class LoginCourierTest {
 
     @After
     public void deleteCourier() {
-
         courierClient.deleteCourier(courier);
     }
 

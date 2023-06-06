@@ -36,7 +36,6 @@ public class CreateOrderTest {
     @Test
     @DisplayName("Проверяем код и тело ответа в случае валидного запроса")
     @Description("Ожидаемый результат: код 201, заказ создан, тело запроса содержит track")
-
     public void checkCreateValidOrder() {
         orderClient.createOrder(order)
                 .then()

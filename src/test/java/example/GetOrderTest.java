@@ -13,9 +13,7 @@ public class GetOrderTest {
     @Test
     @DisplayName("Проверяем тело в случае валидного запроса")
     @Description("Ожидаемый результат: тело ответа возвращает список заказов")
-
     public void getOrderReturnAllOrders() {
-
         orderClient.getOrder()
                 .then()
                 .body("orders", notNullValue()); // тело ответа содержит orders; матчер notNullValue() проверяет, что аргумент метода assertThat — не null-значение

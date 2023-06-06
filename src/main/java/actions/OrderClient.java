@@ -17,7 +17,6 @@ public class OrderClient extends BaseAPI { // класс OrderClient - насл�
 
     @Step("Метод для шага Создать заказ")
     @Description("POST на ручку api/v1/orders")
-
     public Response createOrder(Order order) {
         return given(RequestSpecification()) // вызываем метод RequestSpecification(), где хранится Base url
                 .header("Content-type", "application/json")
@@ -29,7 +28,6 @@ public class OrderClient extends BaseAPI { // класс OrderClient - насл�
 
     @Step("Метод для шага Получить заказы")
     @Description("GET  на ручку api/v1/orders")
-
     public Response getOrder() {
         return given(RequestSpecification()) // вызываем метод RequestSpecification(), где хранится Base url
                 .get(PathAPI.ORDER_BASE_URL);

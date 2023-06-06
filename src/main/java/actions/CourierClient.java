@@ -45,7 +45,6 @@ public class CourierClient extends BaseAPI { // класс CourierClient - на�
 
     @Step("Удалить курьера из системы")
     @Description("DELETE на ручку /api/v1/courier/:id")
-
     public void deleteCourier(Courier courier) {
         try {
             int id = loginCourier(courier).then().extract().path("id");
